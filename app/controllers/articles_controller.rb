@@ -31,7 +31,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
 
     if @article.update(article_params)
-      redirect_to @article    #kad kliknemo na edit na stranici articles on nas usmerava na view_edit
+      redirect_to @article
     else
       render 'edit'
     end
@@ -41,7 +41,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.destroy
 
-    redirect_to articles_path   #pomocu ovog articles_path ostajemo na stranici articles i posle brisanja komenatara
+    redirect_to articles_path
   end
 
   private
