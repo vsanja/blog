@@ -10,9 +10,10 @@ RSpec.describe Comment, type: :model do
   it { should respond_to :article }
 
   describe 'validations' do
-    subject { described_class.new(commenter: commenter, body: body) }
+    subject { described_class.new(commenter: commenter, body: body, article_id: article.id) }
     let(:commenter) { 'John Doe' }
     let(:body) { 'Test Body' }
+    let(:article) { create(:article) }
 
     it { should be_valid }
 

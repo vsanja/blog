@@ -1,6 +1,4 @@
 require 'rails_helper'
-require 'spec_helper'
-# require 'support/factory_girl'
 
 RSpec.describe Article, type: :model do
   describe '::comments' do

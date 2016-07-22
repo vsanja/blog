@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160714122838) do
+ActiveRecord::Schema.define(version: 20160720150804) do
+
+  create_table "account_histories", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "account_id"
+  end
+
+  create_table "accounts", force: :cascade do |t|
+    t.integer  "customer_id"
+    t.string   "account_number"
+    t.integer  "price"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -29,6 +43,14 @@ ActiveRecord::Schema.define(version: 20160714122838) do
   end
 
   add_index "comments", ["article_id"], name: "index_comments_on_article_id"
+
+  create_table "customers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "city"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "students", force: :cascade do |t|
     t.string   "name"
